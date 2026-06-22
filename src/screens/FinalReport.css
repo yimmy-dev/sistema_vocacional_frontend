@@ -1,0 +1,340 @@
+/* ─── FULLSCREEN ─── */
+.fr-fullscreen {
+  display: flex; flex-direction: column;
+  min-height: 100vh; width: 100%;
+  background: var(--color-bg, #F0F4F8);
+  font-family: var(--font-body, 'Inter', sans-serif);
+}
+
+/* ─── BODY (dos columnas, mismo patrón que .ir-body / .welcome) ─── */
+.fr-body {
+  flex: 1;
+  max-width: 1100px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 38px 24px 60px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 32px;
+  justify-content: center;
+  /* Asegura que el contenido se pinte SIEMPRE por encima de la curva
+     decorativa del header (que se derrama un poco debajo de su caja),
+     sin importar el padding usado. */
+  position: relative;
+  z-index: 11;
+}
+
+/* ─── LEFT COLUMN — tarjetas claras, mismo lenguaje visual que el resto del sitio ─── */
+.fr-left-col {
+  flex: 1;
+  max-width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.fr-card {
+  background: var(--color-surface, #fff);
+  border: none;
+  border-radius: var(--radius-md, 12px);
+  padding: 16px 18px;
+  box-shadow: 0 6px 22px rgba(15, 42, 82, 0.14);
+}
+
+.fr-card-title {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--color-muted, #6B7A8D);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 8px;
+}
+
+/* Postulante — mismo color de fondo que la página, con sombra para que se note */
+.fr-card--postulant {
+  text-align: center;
+  padding: 22px 18px;
+  background: var(--color-bg, #F0F4F8);
+  box-shadow: 0 6px 22px rgba(15, 42, 82, 0.14);
+}
+.fr-avatar {
+  width: 62px; height: 62px; border-radius: 50%;
+  background: var(--color-accent, #E8B84B); color: #1B4F8A;
+  font-size: 27px; font-weight: 800;
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 12px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+}
+.fr-postulant-name { font-size: 16px; font-weight: 700; color: var(--color-text, #1A2332); }
+.fr-postulant-ci    { font-size: 12px; color: var(--color-muted, #6B7A8D); margin-top: 4px; }
+
+/* Carrera evaluada — sombra suave en vez de borde marcado */
+.fr-card--carrera { box-shadow: 0 6px 22px rgba(0,0,0,0.12); }
+.fr-carrera-name { font-size: 14.5px; font-weight: 700; }
+
+/* Veredicto — colores más saturados, con insignia de ícono, sombra en vez de borde */
+.fr-card--verdict { text-align: center; padding: 20px 18px; }
+.fr-card--verdict-ok   { background: #DCF3E6; box-shadow: 0 6px 24px rgba(46,125,82,0.32); }
+.fr-card--verdict-fail { background: #FBDEDC; box-shadow: 0 6px 24px rgba(192,57,43,0.32); }
+.fr-verdict-card-icon  {
+  width: 52px; height: 52px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 26px; margin: 0 auto 10px;
+  background: rgba(255,255,255,0.65);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+.fr-verdict-card-title { font-size: 15px; font-weight: 800; color: var(--color-text, #1A2332); margin-bottom: 4px; }
+.fr-verdict-card-desc  { font-size: 12px; color: #4a5568; line-height: 1.5; }
+
+/* Nota */
+.fr-card--note {
+  font-size: 11.5px; color: var(--color-muted, #6B7A8D);
+  background: #F5F7FA; line-height: 1.6;
+}
+.fr-card--note strong { color: var(--color-text, #1A2332); }
+
+/* ─── MAIN ─── */
+.fr-main {
+  flex: 1.4;
+  min-width: 0;
+  display: flex; flex-direction: column;
+  gap: 14px;
+}
+
+.fr-main-header { display: flex; align-items: center; gap: 16px; }
+.fr-main-icon {
+  width: 46px; height: 46px; background: #1B4F8A; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 20px; flex-shrink: 0;
+}
+.fr-main-title { font-size: 19px; font-weight: 800; color: #1B4F8A; }
+.fr-main-sub   { font-size: 13px; color: #666; margin-top: 2px; }
+.fr-main-divider { height: 3px; width: 60px; background: #E8B84B; border-radius: 2px; }
+
+/* ─── RESUMEN: PORCENTAJE QUE FALTA PARA APROBAR ─── */
+.fr-need-summary {
+  background: #E9F7EF;
+  border: none;
+  border-radius: 12px;
+  padding: 12px 16px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 4px 16px rgba(46, 125, 82, 0.18);
+}
+.fr-need-summary-label {
+  font-size: 13px;
+  font-weight: 700;
+  color: #1f6b45;
+  flex-shrink: 0;
+}
+.fr-need-summary-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.fr-need-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12.5px;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 100px;
+  border: none;
+  background: #fff;
+  color: #2E7D52;
+  box-shadow: 0 2px 8px rgba(46, 125, 82, 0.18);
+}
+
+/* ─── SUBJECT CARDS ─── */
+.fr-subjects { display: flex; flex-direction: column; gap: 12px; }
+.fr-subject-card {
+  border-radius: 14px; padding: 18px 20px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+}
+.fr-subject-top {
+  display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px;
+}
+.fr-subject-left { display: flex; align-items: center; gap: 10px; }
+.fr-subject-icon { font-size: 22px; }
+.fr-subject-name { font-size: 15px; font-weight: 700; }
+.fr-badge {
+  font-size: 12px; font-weight: 700; padding: 4px 12px; border-radius: 100px;
+}
+.fr-badge--ok   { background: rgba(46,125,82,0.15);  color: #2E7D52; }
+.fr-badge--fail { background: rgba(192,57,43,0.12);  color: #c0392b; }
+
+.fr-subject-score-row { display: flex; align-items: baseline; gap: 10px; margin-bottom: 8px; }
+.fr-score-num { font-size: 22px; font-weight: 800; color: #1a1a2e; }
+.fr-score-num span { font-size: 14px; font-weight: 500; color: #888; }
+.fr-score-pct { font-size: 18px; font-weight: 700; margin-left: auto; }
+
+.fr-subject-bar {
+  height: 8px; background: rgba(0,0,0,0.08); border-radius: 100px; overflow: hidden;
+  position: relative; margin-bottom: 8px;
+}
+.fr-subject-fill { height: 100%; border-radius: 100px; transition: width 0.6s ease; }
+.fr-subject-threshold {
+  position: absolute; top: 0; left: 60%; width: 2px; height: 100%; background: rgba(0,0,0,0.2);
+}
+.fr-subject-hint { font-size: 12px; color: #666; }
+
+/* ─── PREGUNTAS A REPASAR (sin mostrar la respuesta correcta) ─── */
+.fr-subject-fails {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px dashed rgba(0,0,0,0.12);
+}
+.fr-subject-fails-toggle {
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: 12.5px;
+  font-weight: 700;
+  color: #a32f24;
+  cursor: pointer;
+}
+.fr-subject-fails-toggle:hover { text-decoration: underline; }
+.fr-subject-fails-list {
+  margin: 10px 0 0;
+  padding-left: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.fr-subject-fails-list li {
+  font-size: 12.5px;
+  color: #3a4658;
+  line-height: 1.5;
+}
+
+.fr-subject-fails-missing {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px dashed rgba(0,0,0,0.12);
+  font-size: 12px;
+  color: #8a93a3;
+  font-style: italic;
+}
+
+/* ─── VERDICT BANNER ─── */
+.fr-verdict {
+  display: flex; align-items: flex-start; gap: 16px;
+  border-radius: 14px; padding: 18px 20px; border-left: 5px solid;
+}
+.fr-verdict--ok   { background: #E8F5EE; border-color: #2E7D52; }
+.fr-verdict--fail { background: #FDF0F0; border-color: #c0392b; }
+.fr-verdict-icon  { font-size: 28px; flex-shrink: 0; }
+.fr-verdict-title { font-size: 16px; font-weight: 700; color: #1a1a2e; margin-bottom: 4px; }
+.fr-verdict-desc  { font-size: 13px; color: #555; line-height: 1.5; }
+
+/* ─── DOWNLOAD ─── */
+.fr-download-btn {
+  width: 100%; padding: 15px; border: none; border-radius: 12px;
+  background: var(--color-accent, #E8B84B); color: #1B4F8A;
+  font-size: 15px; font-weight: 800; cursor: pointer;
+  transition: opacity 0.2s, transform 0.15s;
+  flex-shrink: 0;
+}
+.fr-download-btn:hover { opacity: 0.92; transform: translateY(-1px); }
+
+/* ─── OTRAS CARRERAS CON AFINIDAD ─── */
+.fr-other-careers {
+  background: #F5F7FA;
+  border: 1px solid var(--color-border, #d1dbe8);
+  border-radius: 14px;
+  padding: 16px 18px;
+  margin-bottom: 18px;
+}
+.fr-other-careers-title {
+  font-size: 13.5px;
+  color: #3a4658;
+  font-weight: 600;
+  margin-bottom: 12px;
+  line-height: 1.5;
+}
+.fr-other-careers-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.fr-other-career-btn {
+  background: #fff;
+  border: 1.5px solid;
+  border-radius: 10px;
+  padding: 10px 16px;
+  font-size: 13.5px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+.fr-other-career-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+/* ─── ACCIONES FINALES ─── */
+.fr-final-actions {
+  display: flex;
+  gap: 12px;
+}
+.fr-final-actions .fr-download-btn { flex: 2; }
+.fr-finish-btn {
+  flex: 1;
+  padding: 15px;
+  border: 1.5px solid var(--color-primary, #1B4F8A);
+  border-radius: 12px;
+  background: #fff;
+  color: var(--color-primary, #1B4F8A);
+  font-size: 15px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s;
+}
+.fr-finish-btn:hover { background: #EEF3FA; transform: translateY(-1px); }
+
+@media (max-width: 900px) {
+  .fr-body { gap: 24px; padding: 32px 20px 50px; }
+  .fr-left-col { max-width: 260px; }
+}
+
+@media (max-width: 700px) {
+  .fr-body {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 24px 16px 36px;
+    gap: 24px;
+  }
+
+  .fr-left-col {
+    max-width: 100%;
+  }
+
+  .fr-main-header { gap: 12px; }
+  .fr-main-icon { width: 38px; height: 38px; font-size: 16px; }
+  .fr-main-title { font-size: 16px; }
+
+  .fr-subject-card { padding: 14px 16px; }
+
+  .fr-verdict {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .fr-other-careers-list {
+    flex-direction: column;
+  }
+  .fr-other-career-btn { width: 100%; }
+
+  .fr-final-actions { flex-direction: column; }
+}
+
+@media (max-width: 560px) {
+  .fr-final-actions { flex-direction: column; }
+}
+
+/* ─── FOOTER ─── */
+/* ─── FOOTER (reemplazado por componente BottomBar) ─── */

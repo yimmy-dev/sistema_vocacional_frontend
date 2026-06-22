@@ -1,0 +1,153 @@
+.ip-panel {
+  flex: 1.2;
+  text-align: left;
+}
+
+.ip-heading {
+  text-align: center;
+}
+
+.ip-badge {
+  display: inline-block;
+  background: var(--color-accent-light);
+  color: var(--color-accent);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 5px 14px;
+  border-radius: 100px;
+  margin-bottom: 20px;
+}
+
+.ip-title {
+  font-family: var(--font-display);
+  font-size: clamp(32px, 6vw, 48px);
+  font-weight: 700;
+  color: var(--color-primary);
+  line-height: 1.1;
+  margin-bottom: 16px;
+}
+
+.ip-title em {
+  font-style: italic;
+  color: var(--color-accent);
+}
+
+.ip-desc {
+  font-size: 15px;
+  color: var(--color-muted);
+  line-height: 1.7;
+  max-width: 460px;
+  margin: 0 0 28px 0;
+}
+
+.ip-image {
+  display: block;
+  width: 100%;
+  max-width: 458px;
+  height: auto;
+  object-fit: contain;
+  margin: 0 auto 28px;
+  /* Desvanece los 4 bordes para que se funda con el fondo de la página */
+  -webkit-mask-image: linear-gradient(
+      to bottom,
+      transparent 0%,
+      black 12%,
+      black 88%,
+      transparent 100%
+    ),
+    linear-gradient(
+      to right,
+      transparent 0%,
+      black 8%,
+      black 92%,
+      transparent 100%
+    );
+  -webkit-mask-composite: source-in;
+  mask-image: linear-gradient(
+      to bottom,
+      transparent 0%,
+      black 12%,
+      black 88%,
+      transparent 100%
+    ),
+    linear-gradient(
+      to right,
+      transparent 0%,
+      black 8%,
+      black 92%,
+      transparent 100%
+    );
+  mask-composite: intersect;
+}
+
+/* ════════════════════════════════════════════════════════════════════
+   VARIANTE COMPACTA (usada en InterestTest, en lugar del sidebar)
+   ════════════════════════════════════════════════════════════════════ */
+
+.ip-panel--compact {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  padding: 28px 24px;
+}
+
+.ip-panel--compact .ip-title {
+  font-size: clamp(22px, 3vw, 28px);
+  margin-bottom: 10px;
+}
+
+.ip-panel--compact .ip-badge {
+  font-size: 10px;
+  padding: 4px 11px;
+  margin-bottom: 12px;
+}
+
+.ip-panel--compact .ip-desc {
+  font-size: 13px;
+  line-height: 1.6;
+  margin-bottom: 18px;
+}
+
+.ip-panel--compact .ip-image {
+  max-width: var(--ip-image-max, 275px) !important;
+  margin-bottom: 0;
+}
+
+/* ════════════════════════════════════════════════════════════════════
+   RESPONSIVE
+   ════════════════════════════════════════════════════════════════════ */
+
+@media (max-width: 768px) {
+  .ip-panel {
+    text-align: center;
+  }
+  .ip-image {
+    max-width: 100%;
+    margin: 0 auto 28px;
+  }
+}
+
+@media (max-width: 480px) {
+  .ip-title {
+    font-size: clamp(26px, 8vw, 36px);
+  }
+  .ip-desc {
+    font-size: 14px;
+    max-width: 100%;
+  }
+  .ip-image {
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 700px) {
+  .ip-panel--compact {
+    padding: 20px 16px;
+  }
+  .ip-panel--compact .ip-image {
+    max-width: 160px !important;
+  }
+}

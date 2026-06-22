@@ -1,0 +1,61 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --color-bg:        #F0F4F8;
+  --color-surface:   #FFFFFF;
+  --color-primary:   #1B4F8A;
+  --color-primary-dark: #133A66;
+  --color-accent:    #E8A020;
+  --color-accent-light: #FDF3DC;
+  --color-success:   #2E7D52;
+  --color-success-bg:#E8F5EE;
+  --color-danger:    #C0392B;
+  --color-text:      #1A2332;
+  --color-muted:     #6B7A8D;
+  --color-border:    #D1DBE8;
+
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-body:    'Inter', system-ui, sans-serif;
+
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+
+  --shadow-sm: 0 1px 4px rgba(27,79,138,0.08);
+  --shadow-md: 0 4px 16px rgba(27,79,138,0.12);
+  --shadow-lg: 0 8px 32px rgba(27,79,138,0.16);
+}
+
+html, body, #root {
+  min-height: 100vh;
+  background: var(--color-bg);
+  font-family: var(--font-body);
+  color: var(--color-text);
+  -webkit-font-smoothing: antialiased;
+  width: 100%;
+  /* SIN overflow-x aquí: cualquier overflow distinto de visible en un
+     ancestro de un elemento con position:sticky (TopBar, sidebar del
+     panel admin) rompe el sticky en la mayoría de navegadores. */
+}
+
+img { max-width: 100%; }
+
+button {
+  font-family: var(--font-body);
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+
+input {
+  font-family: var(--font-body);
+}
+
+/* Scrollbar sutil */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--color-border); border-radius: 3px; }

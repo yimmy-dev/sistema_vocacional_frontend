@@ -1,0 +1,155 @@
+.tb-header {
+  position: relative;
+  width: 100%;
+  min-height: 96px;
+  background: #0F2A52;
+  flex-shrink: 0;
+  z-index: 10;
+}
+
+.tb-curve {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: calc(100% + 22px); /* extra para que la ola sobresalga hacia abajo */
+  z-index: 0;
+  display: block;
+  pointer-events: none;
+}
+
+.tb-content {
+  position: relative;
+  z-index: 2;
+  min-height: 96px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 14px 32px;
+}
+
+.tb-brand {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  min-width: 0;
+}
+
+.tb-logo {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+  filter: drop-shadow(0 3px 6px rgba(0,0,0,0.35));
+  flex-shrink: 0;
+}
+
+.tb-titles {
+  min-width: 0;
+}
+
+.tb-title {
+  color: #fff;
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: 0.3px;
+  line-height: 1.15;
+  white-space: nowrap;
+}
+
+.tb-sep {
+  font-weight: 300;
+  opacity: 0.6;
+  margin: 0 2px;
+}
+
+.tb-fivc {
+  font-weight: 700;
+}
+
+.tb-subtitle {
+  color: rgba(255,255,255,0.85);
+  font-size: 13px;
+  font-weight: 400;
+  margin-top: 2px;
+  white-space: nowrap;
+}
+
+.tb-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-shrink: 0;
+}
+
+.tb-step {
+  background: rgba(255,255,255,0.15);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 6px 14px;
+  border-radius: 999px;
+  white-space: nowrap;
+  margin-right: 56px; /* lo aleja de la curva roja, hacia la zona azul */
+}
+
+.tb-user {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.tb-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.18);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* ════════════════════════════════════════════════════════════════════
+   RESPONSIVE
+   ════════════════════════════════════════════════════════════════════ */
+
+@media (max-width: 900px) {
+  .tb-content { padding: 12px 20px; }
+  .tb-logo { width: 52px; height: 52px; }
+  .tb-title { font-size: 17px; }
+  .tb-subtitle { display: none; }
+}
+
+@media (max-width: 700px) {
+  .tb-header {
+    min-height: auto;
+    background: linear-gradient(100deg, #0F2A52 55%, #A01C2B 100%);
+  }
+  .tb-curve {
+    display: none;
+  }
+  .tb-content {
+    min-height: auto;
+    flex-wrap: wrap;
+    row-gap: 8px;
+    padding: 12px 16px;
+  }
+  .tb-logo { width: 42px; height: 42px; }
+  .tb-title { font-size: 14px; white-space: normal; }
+  .tb-subtitle { display: none; }
+  .tb-right { gap: 10px; }
+  .tb-step { font-size: 11px; padding: 5px 10px; order: 3; margin-right: 0; }
+  .tb-user { font-size: 13px; order: 2; }
+  .tb-avatar { width: 26px; height: 26px; }
+}
+
+@media (max-width: 420px) {
+  .tb-brand { gap: 10px; }
+  .tb-title { font-size: 12.5px; }
+}

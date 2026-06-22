@@ -1,0 +1,405 @@
+/* ─── PAGE CONTAINER ─── */
+.it-fullscreen {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100%;
+  background: var(--color-bg, #F0F4F8);
+  font-family: var(--font-body, 'Inter', sans-serif);
+}
+
+/* ─── BODY (dos columnas, igual que .welcome) ─── */
+.it-body {
+  flex: 1;
+  max-width: 1100px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 40px 24px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 40px;
+  justify-content: center;
+}
+
+/* ─── LEFT COLUMN: IntroPanel + círculo de progreso ─── */
+.it-intro-col {
+  flex: 1.2;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Progress circle (ubicado arriba del form, en la columna derecha) */
+.it-progress-circle-wrap {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 10px;
+  margin-bottom: 22px;
+  padding: 18px 20px 20px;
+  background: linear-gradient(180deg, #FBFDFF 0%, #F4F8FC 100%);
+  border: 1px solid var(--color-border, #E2E8F0);
+  border-radius: var(--radius-md, 12px);
+}
+
+.it-progress-circle-track {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.it-progress-circle {
+  width: 76px;
+  height: 76px;
+}
+
+.it-progress-circle-text {
+  position: absolute;
+  text-align: center;
+}
+
+.it-progress-pct {
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--color-primary, #1B4F8A);
+  line-height: 1;
+}
+
+.it-progress-lbl {
+  font-size: 8px;
+  color: var(--color-muted, #6b7a8d);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-top: 2px;
+}
+
+.it-progress-caption {
+  font-size: 13px;
+  color: var(--color-muted, #6b7a8d);
+  line-height: 1.5;
+}
+
+.it-progress-caption strong {
+  color: var(--color-text, #1a1a2e);
+  font-weight: 700;
+}
+
+/* ─── RIGHT COLUMN ─── */
+.it-main {
+  flex: 1;
+  max-width: 480px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Area badge */
+.it-area-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 6px 16px;
+  border-radius: 100px;
+  border: 1.5px solid;
+  margin-bottom: 10px;
+  align-self: flex-start;
+}
+
+/* Counter */
+.it-counter-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 8px;
+}
+
+.it-counter {
+  font-size: 13px;
+  color: #666;
+}
+
+.it-timer {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--color-primary);
+  font-variant-numeric: tabular-nums;
+}
+
+.it-timer--warning {
+  color: var(--color-danger, #c0392b);
+  animation: it-timer-pulse 1s ease-in-out infinite;
+}
+
+@keyframes it-timer-pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.6; }
+}
+
+/* Progress bar */
+.it-prog-bar {
+  width: 100%;
+  height: 5px;
+  background: rgba(0,0,0,0.08);
+  border-radius: 100px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.it-prog-fill {
+  height: 100%;
+  border-radius: 100px;
+  transition: width 0.4s ease;
+}
+
+/* ─── QUESTION CARD ─── */
+.it-card {
+  background: var(--color-surface, #fff);
+  border: 1px solid var(--color-border, #e3e8ef);
+  border-radius: var(--radius-lg, 18px);
+  box-shadow: var(--shadow-md, 0 8px 32px rgba(0,0,0,0.10));
+  padding: 32px;
+  width: 100%;
+  transition: opacity 0.22s ease, transform 0.22s ease;
+}
+
+.it-card--exit {
+  opacity: 0;
+  transform: translateX(-24px);
+}
+
+.it-card-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 6px;
+}
+
+.it-card-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.it-card-label {
+  font-size: 15px;
+  font-weight: 700;
+  color: #333;
+}
+
+.it-card-divider {
+  height: 3px;
+  width: 50px;
+  border-radius: 2px;
+  margin: 8px 0 20px 0;
+}
+
+.it-question {
+  font-size: 18px;
+  font-weight: 600;
+  color: #1a1a2e;
+  line-height: 1.6;
+  margin-bottom: 28px;
+  min-height: 56px;
+}
+
+/* ─── BUTTONS ─── */
+.it-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.it-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 16px 20px;
+  border-radius: 12px;
+  font-size: 17px;
+  font-weight: 700;
+  cursor: pointer;
+  border: none;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.it-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+}
+
+.it-btn:active {
+  transform: scale(0.97);
+}
+
+.it-btn:disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.it-btn--yes {
+  background: #1B4F8A;
+  color: #fff;
+}
+
+.it-btn--yes:hover {
+  background: #0e2d54;
+}
+
+.it-btn--no {
+  background: #C0392B;
+  color: #fff;
+}
+
+.it-btn--no:hover {
+  background: #922b21;
+}
+
+.it-btn-check {
+  font-size: 20px;
+}
+
+.it-btn-cross {
+  font-size: 20px;
+}
+
+/* ─── LOADING / ERROR ─── */
+.it-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  height: 100%;
+  color: #555;
+}
+
+.it-loading code {
+  font-size: 12px;
+  color: #C0392B;
+  background: #fdf0f0;
+  padding: 10px;
+  border-radius: 6px;
+  max-width: 400px;
+  text-align: center;
+}
+
+.it-error-msg {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 14px;
+  padding: 12px 18px;
+  background: #fdf0f0;
+  color: #C0392B;
+  border-radius: 10px;
+  font-size: 13px;
+  max-width: 600px;
+  width: 100%;
+}
+
+.it-submitting {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 16px;
+  color: #555;
+  font-size: 15px;
+}
+
+/* ─── SPINNER ─── */
+.it-spinner {
+  width: 24px;
+  height: 24px;
+  border: 3px solid rgba(27,79,138,0.2);
+  border-top-color: #1B4F8A;
+  border-radius: 50%;
+  animation: it-spin 0.7s linear infinite;
+  flex-shrink: 0;
+}
+
+@keyframes it-spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ─── FOOTER (reemplazado por componente BottomBar) ─── */
+
+/* ════════════════════════════════════════════════════════════════════
+   RESPONSIVE
+   ════════════════════════════════════════════════════════════════════ */
+
+/* ─── TABLET (≤ 900px) ─── */
+@media (max-width: 900px) {
+  .it-body {
+    gap: 28px;
+    padding: 28px 20px;
+  }
+  .it-card {
+    padding: 26px;
+  }
+}
+
+/* ─── MOBILE (≤ 700px): apilar columnas, igual que .welcome ─── */
+@media (max-width: 700px) {
+  .it-body {
+    flex-direction: column;
+    gap: 28px;
+    padding: 20px 16px 28px;
+  }
+
+  .it-intro-col {
+    text-align: center;
+  }
+
+  .it-progress-circle-wrap {
+    justify-content: center;
+  }
+
+  .it-main {
+    max-width: 100%;
+  }
+
+  .it-card {
+    padding: 22px 18px 20px;
+  }
+
+  .it-question {
+    font-size: 16px;
+    min-height: 0;
+    margin-bottom: 20px;
+  }
+
+  .it-actions {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  .it-btn {
+    padding: 14px 12px;
+    font-size: 15px;
+  }
+}
+
+/* ─── MUY PEQUEÑO (≤ 380px) ─── */
+@media (max-width: 380px) {
+  .it-actions {
+    grid-template-columns: 1fr;
+  }
+  .it-card-label { font-size: 13px; }
+}
